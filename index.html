@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Aeterna | Cuidado y Acompañamiento para Adultos Mayores</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FDF9F5;
+            color: #2c2c2c;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --verde-oliva: #6B7B4F;
+            --verde-claro: #8B9D79;
+            --purpura-elegante: #8C729E;
+            --purpura-suave: #CAB8D9;
+            --blanco-puro: #FFFFFF;
+            --beige-claro: #FBF8F4;
+            --gris-suave: #F0EDE8;
+            --sombra: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
+            --borde-redondo: 32px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navegación */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid var(--purpura-suave);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--verde-oliva), var(--purpura-elegante));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--verde-oliva);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #4a4a4a;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: var(--purpura-elegante);
+            transform: translateY(-2px);
+        }
+
+        /* Botones */
+        .btn-primario {
+            background: var(--purpura-elegante);
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 1rem;
+            box-shadow: 0 6px 14px rgba(140,114,158,0.25);
+        }
+        .btn-primario:hover {
+            background: var(--verde-oliva);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(107,123,79,0.3);
+        }
+        .btn-secundario {
+            background: var(--verde-claro);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* Hero con el logo integrado */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            background: var(--blanco-puro);
+            border-radius: var(--borde-redondo);
+            padding: 2.5rem;
+            box-shadow: var(--sombra);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "✿";
+            font-size: 18rem;
+            position: absolute;
+            bottom: -5rem;
+            right: -5rem;
+            opacity: 0.04;
+            color: var(--purpura-elegante);
+            font-family: serif;
+            pointer-events: none;
+        }
+        .hero-text {
+            flex: 1;
+            z-index: 1;
+        }
+        /* Logo principal Aeterna - imagen integrada */
+        .logo-principal-container {
+            margin-bottom: 1rem;
+        }
+        .logo-aeterna-img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+        }
+        .slogan {
+            font-size: 1.2rem;
+            color: var(--purpura-elegante);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .decoracion-hero {
+            flex: 0.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circulo-decorativo {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, var(--purpura-suave) 0%, #e9e0f0 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+        .circulo-decorativo i {
+            font-size: 5rem;
+            color: var(--verde-oliva);
+            opacity: 0.7;
+        }
+
+        /* Títulos */
+        .seccion-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--verde-oliva);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--purpura-elegante);
+            padding-left: 1.2rem;
+        }
+
+        /* Tarjetas */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card-moderna {
+            background: var(--blanco-puro);
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139,157,121,0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-moderna:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+        }
+        .card-moderna::after {
+            content: "❦";
+            font-size: 3rem;
+            position: absolute;
+            bottom: -0.5rem;
+            right: -0.5rem;
+            opacity: 0.08;
+            color: var(--purpura-elegante);
+            pointer-events: none;
+        }
+        .icono-tarjeta {
+            font-size: 3rem;
+            color: var(--purpura-elegante);
+            margin-bottom: 1rem;
+        }
+        .card-moderna h3 {
+            color: var(--verde-oliva);
+            margin-bottom: 0.8rem;
+        }
+        .btn-card {
+            background: var(--verde-claro);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-card:hover {
+            background: var(--verde-oliva);
+        }
+
+        /* About */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            background: var(--blanco-puro);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .about-grid::before {
+            content: "✻";
+            font-size: 12rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            opacity: 0.04;
+            color: var(--verde-claro);
+            pointer-events: none;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-decoracion {
+            flex: 0.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cruz-decorativa {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(145deg, var(--beige-claro), var(--blanco-puro));
+            border-radius: 60px 60px 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--sombra);
+        }
+        .cruz-decorativa i {
+            font-size: 4rem;
+            color: var(--purpura-elegante);
+        }
+        .valores-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .valor-badge {
+            background: var(--purpura-suave);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Contacto */
+        .contacto-wrapper {
+            background: var(--blanco-puro);
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: var(--sombra);
+            position: relative;
+            overflow: hidden;
+        }
+        .contacto-wrapper::after {
+            content: "✤";
+            font-size: 10rem;
+            position: absolute;
+            bottom: -3rem;
+            right: -2rem;
+            opacity: 0.04;
+            color: var(--verde-oliva);
+            pointer-events: none;
+        }
+        .contacto-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            z-index: 1;
+            position: relative;
+        }
+        .telefono-grande {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-oliva);
+            cursor: pointer;
+        }
+        .form-simple {
+            background: var(--beige-claro);
+            padding: 1.5rem;
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .form-simple input, .form-simple textarea {
+            padding: 0.8rem;
+            border-radius: 24px;
+            border: 1px solid var(--purpura-suave);
+            font-family: inherit;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border-top: 1px solid var(--purpura-suave);
+        }
+        .opiniones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .opinion-card {
+            background: var(--beige-claro);
+            border-radius: 24px;
+            padding: 1.2rem;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-left: 3px solid var(--purpura-elegante);
+        }
+        .opinion-card:hover {
+            transform: translateY(-4px);
+        }
+        .stars {
+            color: #f5b042;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .familia-nombre {
+            font-weight: 700;
+            color: var(--verde-oliva);
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 800px) {
+            .hero-text h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .navbar { padding: 0.8rem 1rem; }
+            .circulo-decorativo, .cruz-decorativa { width: 120px; height: 120px; }
+            .circulo-decorativo i, .cruz-decorativa i { font-size: 3rem; }
+            .logo-aeterna-img { max-width: 200px; }
+        }
+        .hoja-decorativa {
+            font-size: 0.8rem;
+            color: var(--verde-claro);
+            margin-left: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-nav">
+            <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+            <span class="logo-text">Aeterna</span>
+        </div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <!-- SECCIÓN INICIO / HERO con LOGO INTEGRADO -->
+    <section id="inicio" class="hero" data-aos="fade-up">
+        <div class="hero-text">
+            <!-- Logo Aeterna con la imagen integrada -->
+            <div class="logo-principal-container">
+                <img class="logo-aeterna-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 150'%3E%3Crect width='500' height='150' fill='none' /%3E%3Ctext x='40' y='55' font-family='Playfair Display, Georgia, serif' font-size='44' font-weight='700' fill='%236B7B4F'%3EAeterna%3C/text%3E%3Ctext x='40' y='90' font-family='Inter, sans-serif' font-size='14' font-weight='500' fill='%238C729E' letter-spacing='4'%3ECUIDADO Y ACOMPAÑAMIENTO%3C/text%3E%3Cline x1='40' y1='105' x2='200' y2='105' stroke='%23CAB8D9' stroke-width='2' /%3E%3C/svg%3E" alt="Aeterna - Cuidado y Acompañamiento">
+            </div>
+            <div class="slogan"><i class="fas fa-heart" style="color: var(--purpura-elegante);"></i> Atención con alma y experiencia</div>
+            <p>Brindamos atención humana, responsable y personalizada para adultos mayores. Tranquilidad para tu familia, bienestar para quien más quieres.</p>
+            <div class="hero-buttons">
+                <button class="btn-primario" id="btnContactarHero"><i class="fas fa-phone-alt"></i> Contactar</button>
+                <button class="btn-primario" id="btnAgendarHero" style="background: var(--verde-oliva);"><i class="fas fa-calendar-check"></i> Agendar servicio</button>
+                <button class="btn-secundario" id="btnServiciosHero">Conocer servicios</button>
+            </div>
+        </div>
+        <div class="decoracion-hero">
+            <div class="circulo-decorativo">
+                <i class="fas fa-hand-holding-heart"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" data-aos="fade-up">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="seccion-titulo">Sobre Nosotros</h2>
+                <p><strong>Historia:</strong> Aeterna nació del deseo de brindar un cuidado genuino, donde la experiencia y la calidez humana se unen. Desde hace 4 años acompañamos a familias ofreciendo respeto y profesionalismo.</p>
+                <div style="margin-top: 1rem;">
+                    <p><i class="fas fa-bullseye" style="color: var(--purpura-elegante);"></i> <strong>Misión:</strong> Brindar cuidado integral y acompañamiento de calidad, mejorando el bienestar físico, emocional y social.</p>
+                    <p><i class="fas fa-eye" style="color: var(--purpura-elegante);"></i> <strong>Visión:</strong> Ser referente de confianza en cuidado de adultos mayores, destacando por atención humana y compromiso.</p>
+                    <p><i class="fas fa-chart-line"></i> <strong>Experiencia:</strong> 4 años de trayectoria cuidando a personas con cáncer, postoperatorios y necesidades especiales.</p>
+                </div>
+                <div class="valores-list">
+                    <span class="valor-badge">Respeto</span>
+                    <span class="valor-badge">Empatía</span>
+                    <span class="valor-badge">Responsabilidad</span>
+                    <span class="valor-badge">Paciencia</span>
+                    <span class="valor-badge">Honestidad</span>
+                    <span class="valor-badge">Compromiso</span>
+                </div>
+            </div>
+            <div class="about-decoracion">
+                <div class="cruz-decorativa">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" data-aos="fade-up">
+        <h2 class="seccion-titulo"><i class="fas fa-concierge-bell"></i> Servicios</h2>
+        <div class="grid-cards">
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-bath"></i></div><h3>👵 Cuidado personal</h3><p>Ayuda en baño, vestimenta, movilidad y supervisión diaria.</p><button class="btn-card btn-contacto-servicio" data-servicio="Cuidado personal">Contactar</button></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-pills"></i></div><h3>💊 Supervisión de medicamentos</h3><p>Control de horarios, dosis y monitoreo de efectos.</p><button class="btn-card btn-contacto-servicio" data-servicio="Supervisión de medicamentos">Contactar</button></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-utensils"></i></div><h3>🍲 Alimentación especializada</h3><p>Preparación de dietas saludables adaptadas a necesidades médicas.</p><button class="btn-card btn-contacto-servicio" data-servicio="Alimentación especializada">Contactar</button></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-car-side"></i></div><h3>🚗 Traslado a consultas</h3><p>Acompañamiento y movilidad segura a citas médicas.</p><button class="btn-card btn-contacto-servicio" data-servicio="Traslado a consultas">Contactar</button></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-heart"></i></div><h3>🤝 Acompañamiento emocional</h3><p>Compañía activa, contención y bienestar emocional continuo.</p><button class="btn-card btn-contacto-servicio" data-servicio="Acompañamiento emocional">Contactar</button></div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA Y HABILIDADES -->
+    <section id="experiencia" data-aos="fade-up">
+        <h2 class="seccion-titulo"><i class="fas fa-star-of-life"></i> Experiencia y Habilidades</h2>
+        <div class="grid-cards">
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-hand-holding-heart"></i></div><h3>Atención a pacientes con cáncer</h3><p>Cuidado especializado en etapa avanzada o terminal, con respeto y calidez.</p></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-procedures"></i></div><h3>Cuidado postoperatorio</h3><p>Acompañamiento en recuperación, rehabilitación y cuidados específicos.</p></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-apple-alt"></i></div><h3>Preparación de dietas especiales</h3><p>Menús adaptados a necesidades médicas y nutricionales.</p></div>
+            <div class="card-moderna"><div class="icono-tarjeta"><i class="fas fa-wheelchair"></i></div><h3>Saber manejar y trasladar</h3><p>Movilidad segura de pacientes con técnicas adecuadas.</p></div>
+        </div>
+    </section>
+
+    <!-- CONTACTO + OPINIONES -->
+    <section id="contacto" data-aos="fade-up">
+        <div class="contacto-wrapper">
+            <h2 class="seccion-titulo">📞 Contacto y Atención</h2>
+            <div class="contacto-info">
+                <div><i class="fas fa-phone-alt" style="color: var(--verde-oliva); font-size: 1.5rem;"></i><span class="telefono-grande">3881021802</span><p><i class="fab fa-whatsapp"></i> WhatsApp y llamadas</p></div>
+                <div><i class="fas fa-map-marker-alt"></i> Talpa de Allende, Jal. Colonia Cristo Rey, calle Raúl Gil #08, CP 48200</div>
+                <div><i class="fas fa-clock"></i> Lunes a sábado 8:00 - 20:00 hs</div>
+            </div>
+            <div class="form-simple">
+                <h3>Envíanos un mensaje</h3>
+                <input type="text" id="nombreContacto" placeholder="Tu nombre">
+                <input type="tel" id="telefonoContacto" placeholder="Teléfono">
+                <textarea id="mensajeContacto" rows="3" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                <button class="btn-primario" id="btnEnviarContacto"><i class="fas fa-paper-plane"></i> Enviar consulta</button>
+            </div>
+            <div style="margin-top: 2rem;">
+                <h3 style="color: var(--verde-oliva); margin-bottom: 1rem;"><i class="fas fa-star" style="color: #f5b042;"></i> Lo que dicen nuestras familias</h3>
+                <div class="opiniones-grid">
+                    <div class="opinion-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Excelente atención, Guadalupe es muy profesional y cálida. Mi mamá está tranquila y bien cuidada."</p><div class="familia-nombre">— Familia Hernández</div></div>
+                    <div class="opinion-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"El acompañamiento emocional ha sido maravilloso, se nota la vocación de servicio. Recomiendo Aeterna."</p><div class="familia-nombre">— Familia Ramírez</div></div>
+                    <div class="opinion-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Profesionalismo y calidez únicos. La supervisión de medicamentos nos da mucha tranquilidad."</p><div class="familia-nombre">— Familia Contreras</div></div>
+                    <div class="opinion-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Atención responsable y humana. Se nota el cariño con el que tratan a los adultos mayores."</p><div class="familia-nombre">— Familia Haro</div></div>
+                    <div class="opinion-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Siempre están pendientes, con puntualidad y compromiso. Una bendición tener a Aeterna en nuestra vida."</p><div class="familia-nombre">— Familia Mendoza</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p><i class="fas fa-leaf" style="color: var(--verde-claro);"></i> Aeterna – Cuidado que transforma vidas · Confianza y profesionalismo · <i class="fas fa-heart" style="color: var(--purpura-elegante);"></i> 2025</p>
+    </footer>
+</main>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    
+    // INTERACCIONES
+    const btnContactar = document.getElementById('btnContactarHero');
+    const btnAgendar = document.getElementById('btnAgendarHero');
+    const btnServicios = document.getElementById('btnServiciosHero');
+    const seccionContacto = document.getElementById('contacto');
+    const seccionServicios = document.getElementById('servicios');
+    
+    if(btnContactar) btnContactar.addEventListener('click', () => seccionContacto.scrollIntoView({ behavior: 'smooth' }));
+    if(btnAgendar) btnAgendar.addEventListener('click', () => {
+        window.open('https://wa.me/3881021802?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20servicio%20de%20cuidado%20para%20un%20adulto%20mayor.', '_blank');
+    });
+    if(btnServicios) btnServicios.addEventListener('click', () => seccionServicios.scrollIntoView({ behavior: 'smooth' }));
+    
+    // Botones de servicio
+    document.querySelectorAll('.btn-contacto-servicio').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const servicio = btn.getAttribute('data-servicio') || 'servicio';
+            const mensaje = encodeURIComponent(`Hola, estoy interesado en el servicio de "${servicio}" para un adulto mayor.`);
+            window.open(`https://wa.me/3881021802?text=${mensaje}`, '_blank');
+        });
+    });
+    
+    // Formulario
+    const btnEnviar = document.getElementById('btnEnviarContacto');
+    if(btnEnviar) {
+        btnEnviar.addEventListener('click', () => {
+            const nombre = document.getElementById('nombreContacto')?.value.trim() || '';
+            const telefonoUser = document.getElementById('telefonoContacto')?.value.trim() || '';
+            const mensajeTexto = document.getElementById('mensajeContacto')?.value.trim() || '';
+            if(!nombre && !mensajeTexto) {
+                alert('Por favor ingresa tu nombre y mensaje.');
+                return;
+            }
+            let texto = `Hola, soy ${nombre || 'un interesado'}. `;
+            if(telefonoUser) texto += `Mi teléfono: ${telefonoUser}. `;
+            texto += `Consulta: ${mensajeTexto.substring(0, 250)}`;
+            window.open(`https://wa.me/3881021802?text=${encodeURIComponent(texto)}`, '_blank');
+        });
+    }
+    
+    // Click número teléfono
+    const telefonoSpan = document.querySelector('.telefono-grande');
+    if(telefonoSpan) {
+        telefonoSpan.addEventListener('click', () => window.location.href = 'tel:3881021802');
+    }
+</script>
+</body>
+</html>
